@@ -6,7 +6,7 @@
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/05 08:53:15 by zgyorffy          #+#    #+#             */
-/*   Updated: 2015/12/08 09:20:15 by zgyorffy         ###   ########.fr       */
+/*   Updated: 2015/12/08 09:29:25 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	get_data (int fd, char **cache)
 	char	*temp;
 	int		res;
 
-	buff = (char*)malloc(sizeof(*buff) * (BUFF_SIZE + 1));
+	buff = ft_strnew(BUFF_SIZE + 1);
 	if (!buff)
 		return(-1);
 	res = read(fd, buff, BUFF_SIZE);
@@ -40,10 +40,10 @@ int	get_next_line(int const fd, char **line)
 	int			ret;
 
 	if (!cache)
-		cache = (char*)malloc(sizeof(*cache));
+		cache = ft_strnew(BUFF_SIZE);
 	if (cache == NULL || fd < 0 || !line || BUFF_SIZE <= 0)
 		return (-1);
-	while ((eof = ft_strchr(cache, '\n')) == NULL)
+	while ((eof = ft_strchr(cache, '\n')) == 0)
 	{
 		ret = get_data(fd, &cache);
 		if (ret == 0)
