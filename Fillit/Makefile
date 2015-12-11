@@ -6,7 +6,7 @@
 #    By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 07:19:29 by zgyorffy          #+#    #+#              #
-#    Updated: 2015/12/11 07:29:27 by zgyorffy         ###   ########.fr        #
+#    Updated: 2015/12/11 08:51:10 by zgyorffy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 
 SRC = main.c check.c
 
-OBJ = (subst .c,.o,$(SRC))
+OBJ = $(subst .c,.o,$(SRC))
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -29,19 +29,19 @@ LLIB = -lft
 all: $(NAME)
 
 $(NAME):
-	make -C libft/ fclean
 	make -C libft/
 	$(CC) $(CFLAGS) $(INC) -c $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAGS) $(LLIB)
-	rm $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAG) $(LLIB)
 	@echo "fillit created"
 
 clean:
-	rm $(OBJ)
-	@echo "objects removed"
+	@rm $(OBJ)
+	@make -C libft/ clean
+	@echo "fillit objects removed"
 
 fclean: clean
-	rm $(NAME)
+	@rm $(NAME)
+	@make -C libft/ fclean
 	@echo "fillit removed"
 
 re: fclean all

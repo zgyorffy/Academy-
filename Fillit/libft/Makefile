@@ -6,7 +6,7 @@
 #    By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/28 18:10:49 by zgyorffy          #+#    #+#              #
-#    Updated: 2015/11/17 15:45:51 by zgyorffy         ###   ########.fr        #
+#    Updated: 2015/12/11 08:52:28 by zgyorffy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(NAME):
 
 clean:
 	@rm -f $(OBJECTS)
-	@echo "objects removed"
+	@echo "libft objects removed"
 
 fclean: clean
 	@rm -f $(NAME)
