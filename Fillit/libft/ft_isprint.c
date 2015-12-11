@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/05 07:34:37 by zgyorffy          #+#    #+#             */
-/*   Updated: 2015/12/11 07:10:23 by zgyorffy         ###   ########.fr       */
+/*   Created: 2015/10/31 08:34:10 by zgyorffy          #+#    #+#             */
+/*   Updated: 2015/10/31 08:35:09 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#define BUF_SIZE 100
+#include "libft.h"
 
-int main()
+int	ft_isprint(int c)
 {
-	int fd;
-	char buf[BUF_SIZE + 1];
-	int ret;
-	
-	fd = open("zsolt", O_RDONLY);
-	
-	ret = read(fd, buf, BUF_SIZE);
-	
-	buf[ret] = '\0';
-	ft_putnbr(ret);
-	ft_putchar('\n');
-	ft_putstr(buf);
-
-	fd = close(fd);
-	return (0);
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }

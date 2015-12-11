@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/05 07:34:37 by zgyorffy          #+#    #+#             */
-/*   Updated: 2015/12/11 07:10:23 by zgyorffy         ###   ########.fr       */
+/*   Created: 2015/11/10 07:26:56 by zgyorffy          #+#    #+#             */
+/*   Updated: 2015/11/10 07:50:38 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#define BUF_SIZE 100
+#include "libft.h"
 
-int main()
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int fd;
-	char buf[BUF_SIZE + 1];
-	int ret;
-	
-	fd = open("zsolt", O_RDONLY);
-	
-	ret = read(fd, buf, BUF_SIZE);
-	
-	buf[ret] = '\0';
-	ft_putnbr(ret);
-	ft_putchar('\n');
-	ft_putstr(buf);
+	char	*temp;
+	char	*s1;
+	char	*s2;
+	size_t	i;
 
-	fd = close(fd);
-	return (0);
+	temp = (char*)malloc(sizeof(src) * (len + 1));
+	s1 = (char*)dst;
+	s2 = (char*)src;
+	i = 0;
+	while (i < len)
+	{
+		temp[i] = s2[i];
+		i++;
+	}
+	temp[i] = '\0';
+	i = 0;
+	while (i < len)
+	{
+		s1[i] = temp[i];
+		i++;
+	}
+	free(temp);
+	return (s1);
 }

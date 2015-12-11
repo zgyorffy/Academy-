@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/05 07:34:37 by zgyorffy          #+#    #+#             */
-/*   Updated: 2015/12/11 07:10:23 by zgyorffy         ###   ########.fr       */
+/*   Created: 2015/10/30 06:26:04 by zgyorffy          #+#    #+#             */
+/*   Updated: 2015/11/17 17:22:03 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#define BUF_SIZE 100
+#include "libft.h"
 
-int main()
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	int fd;
-	char buf[BUF_SIZE + 1];
-	int ret;
-	
-	fd = open("zsolt", O_RDONLY);
-	
-	ret = read(fd, buf, BUF_SIZE);
-	
-	buf[ret] = '\0';
-	ft_putnbr(ret);
-	ft_putchar('\n');
-	ft_putstr(buf);
+	size_t i;
 
-	fd = close(fd);
-	return (0);
+	i = 0;
+	while (i < n && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }

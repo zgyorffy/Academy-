@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/05 07:34:37 by zgyorffy          #+#    #+#             */
-/*   Updated: 2015/12/11 07:10:23 by zgyorffy         ###   ########.fr       */
+/*   Created: 2015/11/10 11:53:15 by zgyorffy          #+#    #+#             */
+/*   Updated: 2015/11/10 11:59:56 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#define BUF_SIZE 100
+#include "libft.h"
 
-int main()
+char	*ft_strnew(size_t size)
 {
-	int fd;
-	char buf[BUF_SIZE + 1];
-	int ret;
-	
-	fd = open("zsolt", O_RDONLY);
-	
-	ret = read(fd, buf, BUF_SIZE);
-	
-	buf[ret] = '\0';
-	ft_putnbr(ret);
-	ft_putchar('\n');
-	ft_putstr(buf);
+	char *s;
 
-	fd = close(fd);
-	return (0);
+	s = (char*)malloc(sizeof(*s) * (size + 1));
+	if (!s)
+		return (NULL);
+	s = ft_memset(s, '\0', size + 1);
+	return (s);
 }

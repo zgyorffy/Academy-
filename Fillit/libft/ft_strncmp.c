@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/05 07:34:37 by zgyorffy          #+#    #+#             */
-/*   Updated: 2015/12/11 07:10:23 by zgyorffy         ###   ########.fr       */
+/*   Created: 2015/10/31 07:22:20 by zgyorffy          #+#    #+#             */
+/*   Updated: 2015/11/17 17:01:34 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#define BUF_SIZE 100
+#include "libft.h"
 
-int main()
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int fd;
-	char buf[BUF_SIZE + 1];
-	int ret;
-	
-	fd = open("zsolt", O_RDONLY);
-	
-	ret = read(fd, buf, BUF_SIZE);
-	
-	buf[ret] = '\0';
-	ft_putnbr(ret);
-	ft_putchar('\n');
-	ft_putstr(buf);
+	size_t i;
 
-	fd = close(fd);
+	i = 0;
+	while (i < n && (*s1 || *s2))
+	{
+		if (*s1 != *s2)
+			return (*(unsigned char*)s1 - *(unsigned char*)s2);
+		s1++;
+		s2++;
+		i++;
+	}
 	return (0);
 }

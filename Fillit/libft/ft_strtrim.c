@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   ft_srttrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/05 07:34:37 by zgyorffy          #+#    #+#             */
-/*   Updated: 2015/12/11 07:10:23 by zgyorffy         ###   ########.fr       */
+/*   Created: 2015/11/11 07:47:40 by zgyorffy          #+#    #+#             */
+/*   Updated: 2015/11/11 09:01:48 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#define BUF_SIZE 100
+#include "libft.h"
 
-int main()
+char	*ft_strtrim(char const *s)
 {
-	int fd;
-	char buf[BUF_SIZE + 1];
-	int ret;
-	
-	fd = open("zsolt", O_RDONLY);
-	
-	ret = read(fd, buf, BUF_SIZE);
-	
-	buf[ret] = '\0';
-	ft_putnbr(ret);
-	ft_putchar('\n');
-	ft_putstr(buf);
+	char	*s1;
+	size_t	i;
+	size_t	j;
 
-	fd = close(fd);
-	return (0);
+	s1 = (char*)malloc(sizeof(s1) * (ft_strlen(s) + 1));
+	if (!s1)
+		return (NULL);
+	i = 0;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	j = 0;
+	while (s[i])
+		s1[j++] = s[i++];
+	i = ft_strlen(s1) - 1;
+	while ((s1[i] == ' ' || s1[i] == '\n' || s1[i] == '\t') && i > 0)
+	{
+		s1[i] = '\0';
+		i--;
+	}
+	return (s1);
 }
