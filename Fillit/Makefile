@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/12/11 06:10:54 by zgyorffy          #+#    #+#              #
-#    Updated: 2015/12/11 06:56:17 by zgyorffy         ###   ########.fr        #
+#    Created: 2015/12/11 07:19:29 by zgyorffy          #+#    #+#              #
+#    Updated: 2015/12/11 07:29:27 by zgyorffy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRC = main.c check_tetris.c
+SRC = main.c check.c
 
 OBJ = (subst .c,.o,$(SRC))
 
@@ -22,9 +22,9 @@ CC = gcc
 
 INC = -I libft/
 
-LFLAGS = -L libft/
+LFLAG = -L libft/
 
-LLIBS = -lft
+LLIB = -lft
 
 all: $(NAME)
 
@@ -32,7 +32,7 @@ $(NAME):
 	make -C libft/ fclean
 	make -C libft/
 	$(CC) $(CFLAGS) $(INC) -c $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAGS) $(LLIBS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAGS) $(LLIB)
 	rm $(OBJ)
 	@echo "fillit created"
 
@@ -40,7 +40,7 @@ clean:
 	rm $(OBJ)
 	@echo "objects removed"
 
-flclean: clean
+fclean: clean
 	rm $(NAME)
 	@echo "fillit removed"
 
