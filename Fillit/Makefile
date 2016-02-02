@@ -12,35 +12,37 @@
 
 NAME = fillit
 
-SRC = main.c check.c
+SRC = src/main.c src/check.c src/error.c
 
-OBJ = $(subst .c,.o,$(SRC))
+OBJ = main.o check.o error.o
 
 CFLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 
-INC = -I libft/
-
-LFLAG = -L libft/
-
 LLIB = -lft
+
+INC = includes/
+
+LIBPATH = libft/
+
+SRCPATH = src/
 
 all: $(NAME)
 
 $(NAME):
-	make -C libft/
-	$(CC) $(CFLAGS) $(INC) -c $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAG) $(LLIB)
+	make -C $(LIBPATH)
+	$(CC) $(CFLAGS) -I $(INC) -c $(SRC)
+	$(CC) $(CFLAGS) $(OBJ) -L $(LIBPATH) $(LLIB) -o $(NAME)
 	@echo "fillit created"
 
 clean:
-	@rm $(OBJ)
+	@rm -f $(OBJ)
 	@make -C libft/ clean
 	@echo "fillit objects removed"
 
 fclean: clean
-	@rm $(NAME)
+	@rm -f $(NAME)
 	@make -C libft/ fclean
 	@echo "fillit removed"
 

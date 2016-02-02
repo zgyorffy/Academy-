@@ -13,12 +13,13 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define BUFF_SIZE 100
-# include "libft/libft.h"
+# define BUFF_SIZE 1024
+# include "libft.h"
 # include "fcntl.h"
 
 int	check_char(char *str);
-int check_newbox(char *str);
-int check_count(char *str);
+int	check_newbox(char *str);
+int	check_count(char *str);
+void	error(void);
 
 #endif

@@ -26,7 +26,7 @@ int	main(void)
 		buff[ret] = '\0';
 	if (check_char(buff) == 0 || check_newbox(buff) == 0 ||
 			check_count(buff) == 0)
-		ft_putstr("error\n");
+		error();
 	else
 		ft_putstr(buff);
 	free(buff);

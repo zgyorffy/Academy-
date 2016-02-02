@@ -19,8 +19,8 @@ int	main(void)
 	char	*line;
 
 	fd = open("zsolt", O_RDONLY);
-	while (get_next_line(fd, &line))
-		printf("%s\n", line);
+	get_next_line(fd, &line);
+	printf("%s\n", line);
 	close(fd);
 	return (0);
 }
