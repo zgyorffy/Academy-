@@ -12,9 +12,9 @@
 
 NAME = fillit
 
-SRC = src/main.c src/check.c src/error.c
+SRC = src/main.c src/read_file.c src/error.c src/coord.c src/set_coord.c src/fill_list.c
 
-OBJ = main.o check.o error.o
+OBJ = main.o read_file.o error.o coord.o set_coord.o fill_list.o
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -32,8 +32,8 @@ all: $(NAME)
 
 $(NAME):
 	make -C $(LIBPATH)
-	$(CC) $(CFLAGS) -I $(INC) -c $(SRC)
-	$(CC) $(CFLAGS) $(OBJ) -L $(LIBPATH) $(LLIB) -o $(NAME)
+	$(CC) -I $(INC) -c $(SRC)
+	$(CC) $(OBJ) -L $(LIBPATH) $(LLIB) -o $(NAME)
 	@echo "fillit created"
 
 clean:

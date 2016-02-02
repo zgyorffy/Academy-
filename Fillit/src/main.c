@@ -13,23 +13,13 @@
 #include <stdio.h>
 #include "fillit.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	int		fd;
-	char	*buff;
-	int		ret;
-
-	buff = ft_strnew(BUFF_SIZE + 1);
-	fd = open("Tetriminos", O_RDONLY);
-	ret = read(fd, buff, BUFF_SIZE);
-	if (ret > 0)
-		buff[ret] = '\0';
-	if (check_char(buff) == 0 || check_newbox(buff) == 0 ||
-			check_count(buff) == 0)
-		error();
+	t_tetri		*list;
+	
+	if (ac == 2)
+		list = read_file(av[1]);
 	else
-		ft_putstr(buff);
-	free(buff);
-	fd = close(fd);
+		error();
 	return (0);
 }
