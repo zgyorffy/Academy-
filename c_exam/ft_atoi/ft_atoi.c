@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/03 13:47:05 by zgyorffy          #+#    #+#             */
-/*   Updated: 2016/02/03 13:47:07 by zgyorffy         ###   ########.fr       */
+/*   Created: 2016/01/28 14:23:47 by zgyorffy          #+#    #+#             */
+/*   Updated: 2016/01/28 14:39:27 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include <unistd.h>
 
-void	error(void)
+int	ft_atoi(char *s)
 {
-	ft_putstr("error\n");
-	exit(0);
+	long aux;
+	int i;
+	int sign;
+	int nb;
+
+	i = 0;
+	nb = 0;
+	sign = 1;
+	while (s[i] != '\t' || s[i] != ' ' || s[i] != '\n')
+		i++;
+	if (s[i] == '-' || s[i] == '+')
+	{
+		if (s[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		nb = nb * 10 + (s[i] - '0');
+		i++;
+	}
+	aux = nb;
+	return (aux * sign);
 }

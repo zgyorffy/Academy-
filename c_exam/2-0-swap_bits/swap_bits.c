@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   swap_bits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/03 13:47:05 by zgyorffy          #+#    #+#             */
-/*   Updated: 2016/02/03 13:47:07 by zgyorffy         ###   ########.fr       */
+/*   Created: 2016/01/28 11:45:24 by zgyorffy          #+#    #+#             */
+/*   Updated: 2016/01/28 11:48:21 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include <stdio.h>
 
-void	error(void)
+unsigned char swap_bits(unsigned char octet)
 {
-	ft_putstr("error\n");
-	exit(0);
+	return ((octet >> 4 & 0x0F) | (octet << 4 & 0xF0));
+}
+
+int main(void)
+{
+	printf("%d", swap_bits(30));
+	return (0);
 }
