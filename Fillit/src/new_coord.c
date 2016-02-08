@@ -49,7 +49,7 @@ void	add_coord_node(t_tetri *list, unsigned char size)
 	i = 0;
 	while (i < 4)
 	{
-		new_xy = list->xy[i] + list->xy[i] / size;
+		new_xy[i] = list->xy[i] + list->xy[i] / size;
 		i++;
 	}
 	free(list->xy);

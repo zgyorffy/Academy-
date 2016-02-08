@@ -46,9 +46,9 @@ void		add_coord_node(t_tetri *list, unsigned char size);
 void		fillit(t_tetri *list);
 char		*create_map(unsigned char size);
 unsigned char	map_size(t_tetri *list);
-void		print_map(char **map);
+void		print_map(char *map);
 void		back(t_tetri *list, char *map);
 int		add_tetriminos(t_tetri *list, char *map, unsigned char i);
-void		del_tetriminos(t_tetri *list, char *map, unsigned char i);
+void		dell_tetriminos(t_tetri *list, char *map, unsigned char i);
 
 #endif

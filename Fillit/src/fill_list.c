@@ -32,7 +32,6 @@ void	add_node(t_tetri **tetriminos, unsigned char *xy, char letter)
 	{
 		node = node->next;
 		s = node->xy;
-		printf("%s\n", s);
 	}
 	node->next = new_node;
 }

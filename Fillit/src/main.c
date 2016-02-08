@@ -18,7 +18,10 @@ int	main(int ac, char **av)
 	t_tetri		*list;
 	
 	if (ac == 2)
+	{
 		list = read_file(av[1]);
+		fillit(list);
+	}
 	else
 		error();
 	return (0);

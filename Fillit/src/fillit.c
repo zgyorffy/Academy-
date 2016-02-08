@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit"
+#include "fillit.h"
 
 void		fillit(t_tetri *list)
 {
@@ -45,7 +45,7 @@ char		*create_map(unsigned char size)
 	return (map);
 }
 
-unsigned char	map_size(t_tetris *list)
+unsigned char	map_size(t_tetri *list)
 {
 	unsigned char	pieces;
 	unsigned char	size;
