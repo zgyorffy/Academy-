@@ -12,9 +12,11 @@
 
 NAME = fillit
 
-SRC = src/main.c src/read_file.c src/error.c src/coord.c src/set_coord.c src/fill_list.c
+SRC = src/main.c src/read_file.c src/error.c src/coord.c src/set_coord.c \
+	src/fill_list.c src/new_coord.c src/fillit.c
 
-OBJ = main.o read_file.o error.o coord.o set_coord.o fill_list.o
+OBJ = main.o read_file.o error.o coord.o set_coord.o fill_list.o new_coord.o \
+	fillit.o
 
 CFLAGS = -Wall -Wextra -Werror
 

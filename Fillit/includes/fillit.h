@@ -39,5 +39,12 @@ int		not_null(unsigned char *xy);
 void		fill_list(t_tetri **tetriminos, unsigned char *xy, char letter);
 void		add_node(t_tetri **tetriminos, unsigned char *xy, char letter);
 t_tetri		*create_node(t_tetri *tetriminos, unsigned char *xy, char letter);
+void		new_coord(t_tetri *list, unsigned char size);
+void		new_coord_node(t_tetri *list, unsigned char size);
+void		add_coord(t_tetri *list, unsigned char size);
+void		add_coord_node(t_tetri *list, unsigned char size);
+void		fillit(t_tetri *list);
+char		*create_map(unsigned char size);
+unsigned char	map_size(t_tetri *list);
 
 #endif
