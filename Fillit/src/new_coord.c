@@ -10,6 +10,7 @@ void	new_coord(t_tetri *list, unsigned char size)
 		new_coord_node(node, size);
 		node = node->next;
 	}
+	ft_putchar('d');
 }
 
 void	new_coord_node(t_tetri *list, unsigned char size)
@@ -26,6 +27,7 @@ void	new_coord_node(t_tetri *list, unsigned char size)
 	}
 	free(list->xy);
 	list->xy = new_xy;
+	ft_putchar('e');
 }
 
 void	add_coord(t_tetri *list, unsigned char size)
@@ -38,6 +40,7 @@ void	add_coord(t_tetri *list, unsigned char size)
 		add_coord_node(node, size);
 		node = node->next;
 	}
+	ft_putchar('f');
 }
 
 void	add_coord_node(t_tetri *list, unsigned char size)
@@ -54,4 +57,5 @@ void	add_coord_node(t_tetri *list, unsigned char size)
 	}
 	free(list->xy);
 	list->xy = new_xy;
+	ft_putchar('g');
 }

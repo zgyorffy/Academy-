@@ -26,6 +26,7 @@ void		fillit(t_tetri *list)
 		size++;
 		add_coord(list, size);
 	}
+	ft_putchar('h');
 }
 
 char		*create_map(unsigned char size)
@@ -37,11 +38,12 @@ char		*create_map(unsigned char size)
 	i = 0;
 	while (i < size)
 	{
-		ft_memset(map + (size + 1) * i, '.', size);
+		ft_memset(map + i * (size + 1), '.', size);
 		map[(i + 1) * (size + 1) - 1] = '\n';
 		i++;
 	}
-	ft_memset(map + (size + 1) * i, '\0', size + 1);
+	ft_memset(map + i * (size + 1), '\0', size + 1);
+	ft_putchar('i');
 	return (map);
 }
 
@@ -61,5 +63,6 @@ unsigned char	map_size(t_tetri *list)
 	size = 0;
 	while (size * size < pieces * 4)
 		size++;
+	ft_putchar('j');
 	return (size);
 }

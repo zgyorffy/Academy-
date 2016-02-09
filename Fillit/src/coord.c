@@ -29,6 +29,7 @@ unsigned char	*valid_xy(char **tetri)
 	}
 	if (check < 3)
 		error();
+	ft_putchar('3');
 	return(xy);
 }
 
@@ -45,7 +46,7 @@ void	get_xy(char **tetri, int x, unsigned char *xy, int *check)
 		{
 			if (xy[7] != 4)
 				error();
-			save_xy(xy, x, y);
+			save_xy(xy, y, x);
 			if (y != 3 && tetri[x][y + 1] == '#')
 				(*check)++;
 			if (x != 3 && tetri[x + 1][y] == '#')
@@ -53,6 +54,7 @@ void	get_xy(char **tetri, int x, unsigned char *xy, int *check)
 		}
 		y++;
 	}
+	ft_putchar('4');
 	if (tetri[x][y] != '\0')
 		error();
 }
@@ -67,4 +69,5 @@ void	save_xy(unsigned char *xy, int x, int y)
 		error();
 	xy[i] = x;
 	xy[i + 1] = y;
+	ft_putchar('5');
 }

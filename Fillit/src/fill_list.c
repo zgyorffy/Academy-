@@ -18,6 +18,7 @@ void	fill_list(t_tetri **tetriminos, unsigned char *xy, char letter)
 		(*tetriminos) = create_node(*tetriminos, xy, letter);
 	else
 		add_node(tetriminos, xy, letter);
+	ft_putchar('a');
 }
 
 void	add_node(t_tetri **tetriminos, unsigned char *xy, char letter)
@@ -34,6 +35,7 @@ void	add_node(t_tetri **tetriminos, unsigned char *xy, char letter)
 		s = node->xy;
 	}
 	node->next = new_node;
+	ft_putchar('b');
 }
 
 t_tetri	*create_node(t_tetri *tetriminos, unsigned char *xy, char letter)
@@ -48,5 +50,6 @@ t_tetri	*create_node(t_tetri *tetriminos, unsigned char *xy, char letter)
 	while (node)
 		node = node->next;
 	new_node->next = NULL;
+	ft_putchar('c');
 	return (new_node);
 }

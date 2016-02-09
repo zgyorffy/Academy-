@@ -22,6 +22,7 @@ t_tetri	*read_file(char *s)
 		error();
 	tetriminos = NULL;
 	read_tetri(fd, &tetriminos);
+	ft_putchar('0');
 	return (tetriminos);
 }
 
@@ -35,6 +36,7 @@ void	read_tetri(int fd, t_tetri **tetriminos)
 
 	boolean = 1;
 	letter = 'A';
+	ft_putchar('1');
 	while (boolean == 1)
 	{
 		tetri = get_tetri(fd);
@@ -64,5 +66,6 @@ char	**get_tetri(int fd)
 			error();
 		i++;
 	}
+	ft_putchar('2');
 	return (tetri);
 }

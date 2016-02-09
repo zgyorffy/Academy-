@@ -16,6 +16,7 @@ void	set_coord(unsigned char	*xy)
 {
 	set_null(xy);
 	set_null(xy + 1);
+	ft_putchar('6');
 }
 
 void	set_null(unsigned char *xy)
@@ -31,6 +32,7 @@ void	set_null(unsigned char *xy)
 			i += 2;
 		}
 	}
+	ft_putchar('7');
 }
 
 int	not_null(unsigned char *xy)
@@ -45,5 +47,6 @@ int	not_null(unsigned char *xy)
 			return (0);
 		i += 2;
 	}
+	ft_putchar('8');
 	return (1);
 }
