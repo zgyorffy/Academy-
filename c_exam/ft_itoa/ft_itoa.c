@@ -35,35 +35,33 @@ int	str_size(int nb)
 char	*ft_itoa(int n)
 {
 	char *s;
-	int i;
 	long nb;
+	int size;
 
-	i = 0;
 	nb = n;
+	size = str_size(nb);
 	s = (char*)malloc(sizeof(s) * str_size(nb) + 1);
+	s[size--] = '\0';
 	if (nb < 0)
 	{
-		s[i++] = '-';
+		s[0] = '-';
 		nb = -nb;
 	}
 	if (n == 0)
-		s[i++] = '0';
+		s[0] = '0';
 	else
 	{
 		while (nb)
 		{
-			s[i++] = nb % 10 + '0';
+			s[size--] = nb % 10 + '0';
 			nb = nb / 10;
 		}
 	}
-	s[i] = '\0';
 	return (s);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
-	int x = -500;
-
-	printf("%s", ft_itoa(x));
+	printf("%s", ft_itoa(atoi(argv[1])));
 	return (0);
 }
