@@ -6,7 +6,7 @@
 /*   By: zgyorffy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 13:47:33 by zgyorffy          #+#    #+#             */
-/*   Updated: 2016/02/10 08:53:56 by zgyorffy         ###   ########.fr       */
+/*   Updated: 2016/03/10 13:23:32 by zgyorffy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		read_tetri(int fd, t_tetri **tetriminos)
 
 	boolean = 1;
 	letter = 'A';
-	while (boolean == 1)
+	while (boolean == 1 && letter <= 'Z')
 	{
 		tetri = get_tetri(fd);
 		coord = valid_xy(tetri);
